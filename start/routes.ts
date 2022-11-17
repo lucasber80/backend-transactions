@@ -21,15 +21,13 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', async () => {
-  return { hello: 'world' }
+  return { hello: 'tyt' }
 })
 
 Route.post('/users', 'UsersController.store')
-Route.get('/users/:id', 'UsersController.listById')//.middleware('auth')
+Route.get('/users/:id', 'UsersController.listById') //.middleware('auth')
 
 Route.post('/session', 'SessionsController.store')
 
-
 Route.post('/transaction', 'TransactionsController.store')
 Route.get('/transaction/:id', 'TransactionsController.listByUserId')
-

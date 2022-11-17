@@ -10,6 +10,8 @@ export default class SessionsController {
 
     const user = auth.user
 
+    await user?.load('account')
+
     return response.created({ user, token })
   }
 

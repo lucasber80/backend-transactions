@@ -27,6 +27,7 @@ export default class UsersController {
       return response.status(500).send('')
     }
 
+
     response.created({ user })
   }
 
