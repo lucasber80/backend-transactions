@@ -25,9 +25,10 @@ Route.get('/', async () => {
 })
 
 Route.post('/users', 'UsersController.store')
-Route.get('/users/:id', 'UsersController.listById') //.middleware('auth')
+Route.get('/users/:id', 'UsersController.listById').middleware('auth')
 
 Route.post('/session', 'SessionsController.store')
+Route.delete('/sessions', 'SessionsController.destroy').middleware('auth')
 
-Route.post('/transaction', 'TransactionsController.store')
-Route.get('/transaction/:id', 'TransactionsController.listByUserId')
+Route.post('/transaction', 'TransactionsController.store').middleware('auth')
+Route.get('/transaction/:id', 'TransactionsController.listByUserId').middleware('auth')

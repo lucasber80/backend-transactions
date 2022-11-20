@@ -37,9 +37,9 @@ export default class UsersController {
     await user.load('account')
     return response.ok({ user })
   }
+  
   public async list({ response }: HttpContextContract) {
     const user = await User.query()
-
     return response.ok(user)
   }
 }
