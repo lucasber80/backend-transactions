@@ -27,7 +27,6 @@ export default class UsersController {
       return response.status(500).send('')
     }
 
-
     response.created({ user })
   }
 
@@ -37,5 +36,10 @@ export default class UsersController {
     if (!user) return response.status(500).send('there is no user with that id')
     await user.load('account')
     return response.ok({ user })
+  }
+  public async list({ response }: HttpContextContract) {
+    const user = await User.query()
+
+    return response.ok(user)
   }
 }

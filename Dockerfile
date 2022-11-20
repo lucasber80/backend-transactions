@@ -23,6 +23,5 @@ COPY --chown=node:node ./package*.json ./
 RUN npm ci --production
 COPY --chown=node:node --from=build /home/node/app/build .
 EXPOSE $PORT
-
 RUN node ace migrations:run
 CMD [ "dumb-init", "node", "server.js" ]

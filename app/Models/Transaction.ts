@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, belongsTo, BelongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import Account from './Account'
+import User from './User'
 
 export default class Transaction extends BaseModel {
   @column({ isPrimary: true })
@@ -24,6 +25,11 @@ export default class Transaction extends BaseModel {
     foreignKey: 'debited_account_id',
   })
   public debitedAccount: BelongsTo<typeof Account>
+  @column()
+  public debited_user: User
+
+  @column()
+  public credited_user: User
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
